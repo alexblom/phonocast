@@ -1,0 +1,22 @@
+PATH
+  remote: .
+  specs:
+    cassette (0.1)
+      ruby-mp3info
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    libxml-ruby (2.8.0)
+    minitest (5.5.1)
+    rake (10.4.2)
+    ruby-mp3info (0.8.6)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  cassette!
+  libxml-ruby
+  minitest
+  rake
