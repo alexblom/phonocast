@@ -74,9 +74,8 @@ describe Cassette::Item do
       refute_nil item.published
     end
 
-    it 'tests optional properties' do
-      raise NotImplemented
-    end
+    it 'tests optional properties'
+
   end
 
   describe 'rss' do
@@ -111,9 +110,8 @@ describe Cassette::Item do
       permalink.must_equal "true"
     end
 
-    it 'sets duration' do
-      raise NotImplemented
-    end
+    it 'sets duration'
+
   end
 
   describe 'rss item enclosure' do
