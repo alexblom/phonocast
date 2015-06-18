@@ -65,8 +65,7 @@ describe Cassette::Client do
       FileUtils.rm('cassette.rss')
     end
 
-    it 'can target rss file' do
-      raise NotImplemented
-    end
+    it 'can target rss file'
+
   end
 end
