@@ -3,6 +3,7 @@ PATH
   specs:
     cassette (0.1)
       ruby-mp3info
+      thor
 
 GEM
   remote: https://rubygems.org/
@@ -11,6 +12,7 @@ GEM
     minitest (5.5.1)
     rake (10.4.2)
     ruby-mp3info (0.8.6)
+    thor (0.19.1)
 
 PLATFORMS
   ruby

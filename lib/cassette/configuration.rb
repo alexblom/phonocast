@@ -21,7 +21,7 @@ class Cassette::Configuration
     "title"       => 'Cassette Powered Podcast',
     "link"        => 'https://github.com/alexblom/cassette',
     "file_path"   => './',
-    "description" => " ",
+    "description" => " "
    }
 
   def initialize(opts={})

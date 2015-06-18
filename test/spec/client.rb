@@ -55,12 +55,18 @@ describe Cassette::Client do
     end
   end
 
-  it 'create_feed writes an rss file' do
-    client.create_feed
+  describe 'create_feed' do
+    it 'create_feed writes an rss file' do
+      client.create_feed
 
-    File.exists?("cassette.rss").must_equal true
+      File.exists?("cassette.rss").must_equal true
 
-    #RM
-    FileUtils.rm('cassette.rss')
+      #RM
+      FileUtils.rm('cassette.rss')
+    end
+
+    it 'can target rss file' do
+      raise NotImplemented
+    end
   end
 end

@@ -1,0 +1,49 @@
+#!/usr/bin/env ruby
+
+require 'thor'
+require 'cassette'
+
+class CassetteCLI < Thor
+
+  desc "setup", "Init cassette.yaml file"
+  long_desc <<-LONGDESC
+    Description:
+      Creates ./cassette.yaml file, which can store values if you re-generate your feed.
+  LONGDESC
+  def setup_yaml
+    client = Cassette::Client.new
+    client.setup_yaml
+  end
+
+  desc "create_feed", "Generate RSS Feed"
+  long_desc <<-LONGDESC
+      Create cassette.rss file for podcast.
+
+      Config will load from DEFAULTS -> yaml_path -> CLI
+
+      Not all YAML keys are configurable by the CLI
+  LONGDESC
+  option :base_url, :required => false,
+    :description => 'where are files hosted? (e.g. myserver.com/data)'
+
+  option :target, :required => false,
+                  :description => "set rss file target"
+
+  option :file_path, :required => false,
+                     :description => "where are local files"
+
+  option :title, :required => false,
+                 :description => "Title of Podcast Channel"
+
+  option :link, :required => false,
+                :description => "Channel level link"
+
+  option :yaml_path, :required => false,
+                     :description => "Location of cassette.yaml. Use if you don't want to repeat CLI commands"
+  def create_feed
+    client = Cassette::Client.new(options.to_h)
+    client.create_feed
+  end
+end
+
+CassetteCLI.start

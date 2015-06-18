@@ -19,6 +19,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'ruby-mp3info'
+  spec.add_runtime_dependency 'thor'
 
   spec.add_development_dependency 'minitest'
   spec.add_development_dependency 'libxml-ruby'

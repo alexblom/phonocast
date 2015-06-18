@@ -30,6 +30,7 @@ class Cassette::Client
     end
   end
 
+  #TODO - allow target path
   def create_feed
     channel = Cassette::Channel.new(configuration)
     rss = channel.rss
