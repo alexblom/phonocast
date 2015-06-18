@@ -73,13 +73,8 @@ describe Cassette::Channel do
       }
     end
 
-    it 'logs warning if no config.base_url' do
-      raise NotImplemented
-    end
-
-    it 'allows channel.author to override item.author' do
-      raise NotImplemented
-    end
+    it 'logs warning if no config.base_url'
+    it 'allows channel.author to override item.author'
 
     it 'has items' do
       channel.items.length.must_equal 2
@@ -113,21 +108,10 @@ describe Cassette::Channel do
       description.must_equal channel.description
     end
 
-    it 'has channel author' do
-      raise NotImplemented
-    end
-
-    it 'has itunes_image' do
-      raise NotImplemented
-    end
-
-    it 'has itunes_subtitle' do
-      raise NotImplemented
-    end
-
-    it 'has itunes_summary' do
-      raise NotImplemented
-    end
+    it 'has channel author'
+    it 'has itunes_image'
+    it 'has itunes_subtitle'
+    it 'has itunes_summary'
 
     it 'has expected item length' do
       length = channel_xml.find('item').length
