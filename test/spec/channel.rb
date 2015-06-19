@@ -5,10 +5,11 @@ require 'xml/libxml'
 
 describe Cassette::Channel do
   let(:channel) {
-    client = Cassette::Client.new({
-      "file_path" => CassetteTest::FIXTURE,
-      "description" => "New description"
-    })
+    opts = {
+      file_path:   CassetteTest::FIXTURE,
+      description: "New description"
+    }
+    client = Cassette::Client.new opts
 
     client.channel
   }
@@ -31,20 +32,18 @@ describe Cassette::Channel do
   }
 
   let(:invalid_description_channel) {
-    Cassette::Client.new({
-      "description" => ""
-    }).channel
+    Cassette::Client.new({ description: "" }).channel
   }
 
   let(:invalid_link_channel) {
     Cassette::Client.new({
-      "link" => ""
+      link: ""
     }).channel
   }
 
   let(:invalid_title_channel) {
     Cassette::Client.new({
-      "title" => ""
+      title: ""
     }).channel
   }
 
