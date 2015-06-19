@@ -40,13 +40,9 @@ describe Cassette::Configuration do
       config.description.must_equal defaults["description"]
     end
 
-    it 'each configrable key exists' do
-      raise NotImplemented
-    end
+    it 'each configrable key exists'
+    it 'allowed target_rss to be set'
 
-    it 'allowed target_rss to be set' do
-      raise NotImplemented
-    end
   end
 
   describe 'attrs from yaml_path' do
