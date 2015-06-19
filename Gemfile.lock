@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cassette (0.1)
+    cassette (0.1.0)
       ruby-mp3info
       thor
 

@@ -14,6 +14,6 @@
       <pubDate>Wed, 17 Jun 2015 11:36:54 -0400</pubDate>
       <guid isPermaLink="true">https://github.com/alexblom/cassette/test.mp3</guid>
     </item>
-    <generator>Cassette 0.1</generator>
+    <generator>Cassette 0.1.0</generator>
   </channel>
 </rss>

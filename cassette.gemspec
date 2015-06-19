@@ -3,7 +3,7 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name        = 'cassette'
-  spec.version     = '0.1'
+  spec.version     = '0.1.0'
   spec.date        = '2015-06-06'
   spec.summary     = "Podcast Feed from mp3 files"
   spec.description = "description"
