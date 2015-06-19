@@ -2,7 +2,7 @@ lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
-  spec.name        = 'cassette'
+  spec.name        = 'cassette-podcast'
   spec.version     = '0.1.0'
   spec.date        = '2015-06-06'
   spec.summary     = "Podcast Feed from mp3 files"
@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Alex Blom"]
   spec.email       = 'alex@alexblom.com'
   spec.homepage    =
-    'http://alexblom.com'
+    'https://github.com/AlexBlom/cassette'
   spec.license     = 'MIT'
 
   spec.files         = Dir.glob("{bin,lib}/**/*") + %w(LICENSE README.md)
