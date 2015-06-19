@@ -4,13 +4,20 @@ require 'yaml'
 
 describe Cassette::Client do
   let(:client) {
-    Cassette::Client.new({
-      "base_url" => "http://alexblom.com"
-    })
+    opts = { base_url: "http://alexblom.com" }
+    Cassette::Client.new(opts)
+  }
+  let(:client) {
+    opts = { base_url: "http://alexblom.com" }
+    Cassette::Client.new(opts)
   }
 
+  let(:yaml_filename) { "cassette.yaml" }
+  let(:rss_filepath) { "cassette.rss" }
+  let(:new_rss_filepath) { "sexy_podcast.rss" }
+
   let(:yaml) {
-    YAML.load_file('cassette.yaml')
+    YAML.load_file( yaml_filename )
   }
 
   it 'initializes' do
@@ -31,27 +38,27 @@ describe Cassette::Client do
     end
 
     after do
-      FileUtils.rm('cassette.yaml')
+      FileUtils.rm( yaml_filename )
     end
 
     it 'creates a yaml file' do
-      File.exists?("cassette.yaml").must_equal true
+      File.exists?( yaml_filename ).must_equal true
     end
 
     it 'writes default title' do
-      refute_nil yaml["description"]
+      refute_nil yaml[:description]
     end
 
     it 'writes default link' do
-      refute_nil yaml["link"]
+      refute_nil yaml[:link]
     end
 
     it 'writes default file_path' do
-      refute_nil yaml["file_path"]
+      refute_nil yaml[:file_path]
     end
 
     it 'writes default description' do
-      refute_nil yaml["description"]
+      refute_nil yaml[:description]
     end
   end
 
@@ -59,13 +66,18 @@ describe Cassette::Client do
     it 'create_feed writes an rss file' do
       client.create_feed
 
-      File.exists?("cassette.rss").must_equal true
+      File.exists?( rss_filepath ).must_equal true
 
-      #RM
-      FileUtils.rm('cassette.rss')
+      FileUtils.rm( rss_filepath )
     end
+    it 'allows output filename to change' do
+      client.channel.rss_path = new_rss_filepath
+      client.create_feed
 
-    it 'can target rss file'
+      File.exists?( new_rss_filepath ).must_equal true
+
+      FileUtils.rm( new_rss_filepath )
+    end
 
   end
 end
