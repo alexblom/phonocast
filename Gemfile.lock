@@ -22,3 +22,6 @@ DEPENDENCIES
   libxml-ruby
   minitest
   rake
+
+BUNDLED WITH
+   1.10.3
