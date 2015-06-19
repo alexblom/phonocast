@@ -10,6 +10,7 @@ class Cassette::Channel
 
   attr_accessor :title,
                 :file_path,
+                :rss_path,
                 :description,
                 :link,
                 :base_url,
@@ -37,6 +38,7 @@ class Cassette::Channel
 
     @title = config.title
     @file_path = config.file_path
+    @rss_path = config.rss_path
     @description = config.description
     @link = config.link
     @base_url = config.base_url || @link
