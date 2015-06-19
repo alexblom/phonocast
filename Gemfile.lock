@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    cassette (0.1.0)
+    cassette-podcast (0.1.0)
       ruby-mp3info
       thor
 
@@ -18,7 +18,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  cassette!
+  cassette-podcast!
   libxml-ruby
   minitest
   rake
