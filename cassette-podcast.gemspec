@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors     = ["Alex Blom"]
   spec.email       = 'alex@alexblom.com'
   spec.homepage    =
-    'http://alexblom.com'
+    'https://github.com/AlexBlom/cassette'
   spec.license     = 'MIT'
 
   spec.files         = Dir.glob("{bin,lib}/**/*") + %w(LICENSE README.md)
