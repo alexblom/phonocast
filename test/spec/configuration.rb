@@ -11,10 +11,10 @@ describe Cassette::Configuration do
   #opts overrides link and language
   let(:modded_config) {
       yaml_path = File.join(CassetteTest::FIXTURE, 'cassette.yaml')
-      opts = {"yaml_path"   => yaml_path,
-              "link"        => "https://isleofcode.com",
-              "language"    => "en-us",
-              "description" => "From opts"}
+      opts = {yaml_path:   yaml_path,
+              link:        "https://isleofcode.com",
+              language:    "en-us",
+              description: "From opts"}
 
       Cassette::Configuration.new(opts)
   }
@@ -25,19 +25,19 @@ describe Cassette::Configuration do
 
   describe 'defaults init' do
     it 'sets default title' do
-      config.title.must_equal defaults["title"]
+      config.title.must_equal defaults[:title]
     end
 
     it 'sets default link' do
-      config.link.must_equal defaults["link"]
+      config.link.must_equal defaults[:link]
     end
 
     it 'sets default file_path' do
-      config.file_path.must_equal defaults["file_path"]
+      config.file_path.must_equal defaults[:file_path]
     end
 
     it 'sets default description' do
-      config.description.must_equal defaults["description"]
+      config.description.must_equal defaults[:description]
     end
 
     it 'each configrable key exists'

@@ -22,6 +22,7 @@ class Cassette::Client
 
   def channel
     @channel ||= Cassette::Channel.new(configuration)
+    @channel
   end
 
   def setup_yaml
@@ -30,13 +31,9 @@ class Cassette::Client
     end
   end
 
-  #TODO - allow target path
   def create_feed
-    channel = Cassette::Channel.new(configuration)
-    rss = channel.rss
-
-    File.open("cassette.rss", "w") do |f|
-      f.write(rss.to_s)
+    File.open(channel.rss_path, "w") do |f|
+      f.write(channel.rss.to_s)
     end
   end
 

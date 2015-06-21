@@ -45,7 +45,7 @@ All itunes\_ tags correspond to iTunes RSS spec.
 | Name            | CLI | YAML |  Desc            |
 | -------------   | --- | ---- | ---------------- |
 | base_url        | Y   | Y    | Url where audio files are hosted, e.g. myserver.com/podcasts or mypublicdropbox.com. Defaults to link. |
-| target          | Y   | Y    | Location and name of generated rss file. Default: ./cassette.rss |
+| rss_path        | Y   | Y    | Location and name of generated rss file. Default: ./cassette.rss |
 | file_path       | Y   | Y    | Where are local audio files? Default: ./ |
 | title           | Y   | Y    | Title of Podcast |
 | link            | Y   | Y    | Channel level link (e.g. mypodcast.com) |
@@ -60,8 +60,6 @@ All itunes\_ tags correspond to iTunes RSS spec.
 | itunes_image    | N   | Y    | Channel level |
 | itunes_subtitle | N   | Y    | Defaults to description. |
 | itunes_summary  | N   | Y    | Defaults to description. |
-
-TODO - target_rss not implemented
 
 ## Deployment
 
@@ -86,4 +84,3 @@ grep -rni todo lib/
 ## Copyright
 
 Copyright (c) 2015 Alex Blom. See LICENSE for further details.
-

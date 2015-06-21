@@ -2,26 +2,28 @@ require 'yaml'
 
 class Cassette::Configuration
 
-  CONFIGURABLE_KEYS = ["base_url",
-                       "file_path",
-                       "title",
-                       "link",
-                       "copyright",
-                       "language",
-                       "description",
-                       "author",
-                       "itunes_block",
-                       "itunes_explicit",
-                       "itunes_keywords",
-                       "itunes_image",
-                       "itunes_subtitle",
-                       "itunes_summary"]
+  CONFIGURABLE_KEYS = %i( base_url
+                          file_path
+                          rss_path
+                          title
+                          link
+                          copyright
+                          language
+                          description
+                          author
+                          itunes_block
+                          itunes_explicit
+                          itunes_keywords
+                          itunes_image
+                          itunes_subtitle
+                          itunes_summary )
 
    DEFAULTS = {
-    "title"       => 'Cassette Powered Podcast',
-    "link"        => 'https://github.com/alexblom/cassette',
-    "file_path"   => './',
-    "description" => " "
+    title:       'Cassette Powered Podcast',
+    link:        'https://github.com/alexblom/cassette',
+    file_path:   './',
+    description: " ",
+    rss_path:    "./cassette.rss"
    }
 
   def initialize(opts={})
@@ -32,9 +34,14 @@ class Cassette::Configuration
     config = DEFAULTS.clone
 
     #YAML takes precedence to DEFAULTS
-    yaml_path = opts.delete("yaml_path") || 'cassette.yaml'
+    yaml_path = opts.delete(:yaml_path) || 'cassette.yaml'
     if File.exists?(yaml_path)
+
       yaml = YAML.load_file(yaml_path)
+      yaml.keys.each do |key|
+        yaml[(key.to_sym rescue key) || key] = yaml.delete(key)
+      end
+
       config.merge!(yaml)
     end
 
@@ -53,7 +60,7 @@ class Cassette::Configuration
 
     def set_instance_variables(config)
       CONFIGURABLE_KEYS.each do |key|
-        instance_variable_set("@#{key}", config[key])
+        instance_variable_set("@#{key.to_s}", config[key])
       end
     end
 end
