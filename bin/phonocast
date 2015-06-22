@@ -1,23 +1,23 @@
 #!/usr/bin/env ruby
 
 require 'thor'
-require 'cassette'
+require 'phonocast'
 
-class CassetteCLI < Thor
+class PhonocastCLI < Thor
 
-  desc "setup", "Init cassette.yaml file"
+  desc "setup", "Init phonocast.yaml file"
   long_desc <<-LONGDESC
     Description:
-      Creates ./cassette.yaml file, which can store values if you re-generate your feed.
+      Creates ./phonocast.yaml file, which can store values if you re-generate your feed.
   LONGDESC
   def setup_yaml
-    client = Cassette::Client.new
+    client = Phonocast::Client.new
     client.setup_yaml
   end
 
   desc "create_feed", "Generate RSS Feed"
   long_desc <<-LONGDESC
-      Create cassette.rss file for podcast.
+      Create phonocast.rss file for podcast.
 
       Config will load from DEFAULTS -> yaml_path -> CLI
 
@@ -39,11 +39,11 @@ class CassetteCLI < Thor
                 :description => "Channel level link"
 
   option :yaml_path, :required => false,
-                     :description => "Location of cassette.yaml. Use if you don't want to repeat CLI commands"
+                     :description => "Location of phonocast.yaml. Use if you don't want to repeat CLI commands"
   def create_feed
-    client = Cassette::Client.new(options.to_h)
+    client = Phonocast::Client.new(options.to_h)
     client.create_feed
   end
 end
 
-CassetteCLI.start
+PhonocastCLI.start
