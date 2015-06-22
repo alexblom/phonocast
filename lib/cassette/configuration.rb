@@ -5,6 +5,7 @@ class Cassette::Configuration
   CONFIGURABLE_KEYS = %i( base_url
                           file_path
                           rss_path
+                          image_path
                           title
                           link
                           copyright
@@ -14,7 +15,6 @@ class Cassette::Configuration
                           itunes_block
                           itunes_explicit
                           itunes_keywords
-                          itunes_image
                           itunes_subtitle
                           itunes_summary )
 

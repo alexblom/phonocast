@@ -13,6 +13,7 @@ class Cassette::Channel
                 :rss_path,
                 :description,
                 :link,
+                :image_url,
                 :base_url,
                 :copyright,
                 :items,
@@ -20,7 +21,6 @@ class Cassette::Channel
                 :author,
                 :itunes_block,
                 :itunes_explicit,
-                :itunes_image,
                 :itunes_keywords,
                 :itunes_subtitle,
                 :itunes_summary
@@ -44,11 +44,12 @@ class Cassette::Channel
     @base_url = config.base_url || @link
     @copyright = config.copyright
     @author = config.author
-    @itunes_image = config.itunes_image
     @itunes_subtitle = config.itunes_subtitle
     @itunes_summary = config.itunes_summary
     @language = config.language
     @itunes_block = config.itunes_block
+
+    @image_url = "#{@base_url}/#{config.image_path}" if config.image_path
 
     @items = []
     init_items
@@ -64,7 +65,7 @@ class Cassette::Channel
     channel.description = @description
     channel.generator = "Cassette #{Cassette::VERSION}"
     #channel.author = @author
-    channel.itunes_image = RSS::ITunesChannelModel::ITunesImage.new(@itunes_image)
+    channel.itunes_image = RSS::ITunesChannelModel::ITunesImage.new(@image_url)
     channel.itunes_subtitle = @itunes_subtitle
     channel.itunes_summary = @itunes_summary
 
@@ -80,7 +81,7 @@ class Cassette::Channel
   private
     def validate_config(config)
       if !config.base_url
-        puts "Warning: No base_url. Download links probably won't work"
+        warn "Warning: No base_url. Download links probably won't work"
       end
 
       [config.description,
