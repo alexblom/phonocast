@@ -8,7 +8,9 @@ can then be deployed on your own server or even Dropbox.
 
 ## Installation
 
-gem install #TODO
+``
+gem install phonocast
+``
 
 ## Usage
 
