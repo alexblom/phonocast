@@ -4,12 +4,16 @@ require 'test_helper'
 require 'xml/libxml'
 
 describe Cassette::Channel do
-  let(:channel) {
-    opts = {
+
+  let(:channel_opts) {
+    {
       file_path:   CassetteTest::FIXTURE,
-      description: "New description"
+      description: "New description",
+      image_path: 'awesome_logo.jpg'
     }
-    client = Cassette::Client.new opts
+  }
+  let(:channel) {
+    client = Cassette::Client.new channel_opts
 
     client.channel
   }
@@ -73,11 +77,23 @@ describe Cassette::Channel do
     end
 
     it 'logs warning if no config.base_url'
-    it 'allows channel.author to override item.author'
 
     it 'has items' do
       channel.items.length.must_equal 2
     end
+  end
+
+  describe 'attributes' do
+    it 'correctly sets image_url' do
+      refute_nil channel.image_url
+    end
+
+    it 'image_url is base_url + image_path' do
+      expected_url = "#{channel.base_url}/#{channel_opts[:image_path]}"
+      channel.image_url.must_equal expected_url
+    end
+
+    it 'allows channel.author to override item.author'
   end
 
   describe 'rss' do
@@ -108,7 +124,12 @@ describe Cassette::Channel do
     end
 
     it 'has channel author'
-    it 'has itunes_image'
+
+    it 'has itunes_image' do
+      image_url = channel_xml.find('itunes:image/@href').first.value
+      image_url.must_equal channel.image_url
+    end
+
     it 'has itunes_subtitle'
     it 'has itunes_summary'
 
