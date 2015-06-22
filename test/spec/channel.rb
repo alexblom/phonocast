@@ -12,8 +12,17 @@ describe Cassette::Channel do
       image_path: 'awesome_logo.jpg'
     }
   }
+
   let(:channel) {
     client = Cassette::Client.new channel_opts
+
+    client.channel
+  }
+
+  let(:channel_without_image) {
+    opts = channel_opts.clone
+    opts.delete(:image_path)
+    client = Cassette::Client.new opts
 
     client.channel
   }
@@ -77,6 +86,10 @@ describe Cassette::Channel do
     end
 
     it 'logs warning if no config.base_url'
+
+    it 'does not set image_url if no config.image_path' do
+      channel_without_image.image_url.must_equal nil
+    end
 
     it 'has items' do
       channel.items.length.must_equal 2

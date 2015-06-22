@@ -49,7 +49,7 @@ class Cassette::Channel
     @language = config.language
     @itunes_block = config.itunes_block
 
-    @image_url = "#{@base_url}/#{config.image_path}"
+    @image_url = "#{@base_url}/#{config.image_path}" if config.image_path
 
     @items = []
     init_items
