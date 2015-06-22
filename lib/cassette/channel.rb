@@ -81,7 +81,7 @@ class Cassette::Channel
   private
     def validate_config(config)
       if !config.base_url
-        puts "Warning: No base_url. Download links probably won't work"
+        warn "Warning: No base_url. Download links probably won't work"
       end
 
       [config.description,

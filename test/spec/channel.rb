@@ -85,7 +85,16 @@ describe Cassette::Channel do
       }
     end
 
-    it 'logs warning if no config.base_url'
+    it 'logs warning if no config.base_url' do
+      expected_err = "Warning: No base_url. Download links probably won't work"
+
+      out, err = capture_io do
+        channel
+      end
+
+      refute_nil err
+      err.strip.must_equal expected_err.strip
+    end
 
     it 'does not set image_url if no config.image_path' do
       channel_without_image.image_url.must_equal nil
