@@ -3,17 +3,17 @@ require 'test_helper'
 
 require 'xml/libxml'
 
-describe Cassette::Item do
+describe Phonocast::Item do
   let(:mp3_path) {
-    File.join(CassetteTest::FIXTURE, '/test.mp3')
+    File.join(PhonocastTest::FIXTURE, '/test.mp3')
   }
 
   let(:item) {
-    Cassette::Item.new(mp3_path, CassetteTest::BASE_URL)
+    Phonocast::Item.new(mp3_path, PhonocastTest::BASE_URL)
   }
 
   let(:item_author_override) {
-    Cassette::Item.new(mp3_path, "https://github.com/alexblom/cassette", "New Artist")
+    Phonocast::Item.new(mp3_path, "https://github.com/alexblom/phonocast", "New Artist")
   }
 
   let(:xml) {
@@ -28,23 +28,23 @@ describe Cassette::Item do
   describe 'defaults' do
     it 'requires path' do
       assert_raises(ArgumentError) {
-        Cassette::Item.new
+        Phonocast::Item.new
       }
     end
 
     it 'requires base_url' do
       assert_raises(ArgumentError) {
-        Cassette::Item.new('.')
+        Phonocast::Item.new('.')
       }
     end
 
     it 'sets title to mp3 title tag' do
-      item.title.must_equal "Cassette Test mp3"
+      item.title.must_equal "Phonocast Test mp3"
     end
 
     it 'defaults to filename if title tag unavailable' do
-      no_artist = File.join(CassetteTest::FIXTURE, '/no_artist.mp3')
-      no_artist_item = Cassette::Item.new(no_artist, CassetteTest::BASE_URL)
+      no_artist = File.join(PhonocastTest::FIXTURE, '/no_artist.mp3')
+      no_artist_item = Phonocast::Item.new(no_artist, PhonocastTest::BASE_URL)
 
       no_artist_item.title.must_equal "no_artist.mp3"
     end
@@ -62,11 +62,11 @@ describe Cassette::Item do
     end
 
     it 'sets file size as file size' do
-      item.file_size.must_equal 2717
+      item.file_size.must_equal 2719
     end
 
     it 'generates a correct url' do
-      expected_link = CassetteTest::BASE_URL + "/test.mp3"
+      expected_link = PhonocastTest::BASE_URL + "/test.mp3"
       item.link.must_equal expected_link
     end
 

@@ -1,9 +1,9 @@
-require 'cassette'
+require 'phonocast'
 require 'minitest/autorun'
 
 require 'helper/xml_helper'
 
-module CassetteTest
+module PhonocastTest
   FIXTURE = File.join('/', File.dirname(__FILE__), 'fixtures')
-  BASE_URL = "https://github.com/alexblom/cassette"
+  BASE_URL = "https://github.com/alexblom/phonocast"
 end

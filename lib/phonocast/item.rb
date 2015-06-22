@@ -3,7 +3,7 @@ require 'mp3info'
 require 'rss/2.0'
 require 'rss/itunes'
 
-class Cassette::Item
+class Phonocast::Item
 
   attr_accessor :title,
                 :published,

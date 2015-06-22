@@ -1,26 +1,26 @@
 require 'minitest/spec'
 require 'test_helper'
 
-describe Cassette::Configuration do
+describe Phonocast::Configuration do
 
   let(:config) {
-    Cassette::Configuration.new
+    Phonocast::Configuration.new
   }
 
   #Yaml overrides title to YAML Title
   #opts overrides link and language
   let(:modded_config) {
-      yaml_path = File.join(CassetteTest::FIXTURE, 'cassette.yaml')
+      yaml_path = File.join(PhonocastTest::FIXTURE, 'phonocast.yaml')
       opts = {yaml_path:   yaml_path,
               link:        "https://isleofcode.com",
               language:    "en-us",
               description: "From opts"}
 
-      Cassette::Configuration.new(opts)
+      Phonocast::Configuration.new(opts)
   }
 
   let(:defaults) {
-    Cassette::Configuration::DEFAULTS
+    Phonocast::Configuration::DEFAULTS
   }
 
   describe 'defaults init' do

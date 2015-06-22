@@ -1,6 +1,6 @@
 require 'yaml'
 
-class Cassette::Configuration
+class Phonocast::Configuration
 
   CONFIGURABLE_KEYS = %i( base_url
                           file_path
@@ -19,11 +19,11 @@ class Cassette::Configuration
                           itunes_summary )
 
    DEFAULTS = {
-    title:       'Cassette Powered Podcast',
-    link:        'https://github.com/alexblom/cassette',
+    title:       'Phonocast Powered Podcast',
+    link:        'https://github.com/alexblom/phonocast',
     file_path:   './',
     description: " ",
-    rss_path:    "./cassette.rss"
+    rss_path:    "./phonocast.rss"
    }
 
   def initialize(opts={})
@@ -34,7 +34,7 @@ class Cassette::Configuration
     config = DEFAULTS.clone
 
     #YAML takes precedence to DEFAULTS
-    yaml_path = opts.delete(:yaml_path) || 'cassette.yaml'
+    yaml_path = opts.delete(:yaml_path) || 'phonocast.yaml'
     if File.exists?(yaml_path)
 
       yaml = YAML.load_file(yaml_path)

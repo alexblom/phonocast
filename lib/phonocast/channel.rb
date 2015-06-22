@@ -1,7 +1,7 @@
 require 'rss/2.0'
 require 'rss/itunes'
 
-class Cassette::Channel
+class Phonocast::Channel
 
   #A Channel represents a Podcast Channel
   #  (e.g. Hardcore History)
@@ -63,7 +63,7 @@ class Cassette::Channel
     channel.title = @title
     channel.link = @link
     channel.description = @description
-    channel.generator = "Cassette #{Cassette::VERSION}"
+    channel.generator = "Phonocast #{Phonocast::VERSION}"
     #channel.author = @author
     channel.itunes_image = RSS::ITunesChannelModel::ITunesImage.new(@image_url)
     channel.itunes_subtitle = @itunes_subtitle
@@ -97,7 +97,7 @@ class Cassette::Channel
       podcast_files = collect_podcast_files(@file_path)
       podcast_files.each do |file_name|
         path = File.join(@file_path, file_name)
-        @items.push(Cassette::Item.new(path, @base_url))
+        @items.push(Phonocast::Item.new(path, @base_url))
       end
     end
 

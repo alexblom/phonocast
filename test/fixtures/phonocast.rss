@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<rss version="2.0"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd">
+  <channel>
+    <title>Phonocast Powered Podcast</title>
+    <link>https://github.com/alexblom/phonocast</link>
+    <description>Put your description here</description>
+    <item>
+      <title>Phonocast Test mp3</title>
+      <link>https://github.com/alexblom/phonocast/test.mp3</link>
+      <enclosure url="https://github.com/alexblom/phonocast/test.mp3"
+        length="2717"
+        type="audio/mp3"/>
+      <pubDate>Wed, 17 Jun 2015 11:36:54 -0400</pubDate>
+      <guid isPermaLink="true">https://github.com/alexblom/phonocast/test.mp3</guid>
+    </item>
+    <generator>Phonocast 0.1.0</generator>
+  </channel>
+</rss>

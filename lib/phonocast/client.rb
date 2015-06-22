@@ -1,10 +1,10 @@
-class Cassette::Client
+class Phonocast::Client
 
-  #A Client is how you interact with Cassette
+  #A Client is how you interact with Phonocast
   #  (via CLI in 99% of cases)
   #
   #Pass a Client configuration opts
-  #  Cassette::Client.new(configuration)
+  #  Phonocast::Client.new(configuration)
 
   attr_accessor :configuration, :channel
 
@@ -13,21 +13,21 @@ class Cassette::Client
   end
 
   def configuration(opts={})
-    @configuration ||= Cassette::Configuration.new(opts)
+    @configuration ||= Phonocast::Configuration.new(opts)
   end
 
   def configuration=(opts={})
-    @configuration = Cassette::Configuration.new(opts)
+    @configuration = Phonocast::Configuration.new(opts)
   end
 
   def channel
-    @channel ||= Cassette::Channel.new(configuration)
+    @channel ||= Phonocast::Channel.new(configuration)
     @channel
   end
 
   def setup_yaml
-    File.open('cassette.yaml', 'w') do |f|
-      f.write(Cassette::Configuration::DEFAULTS.to_yaml)
+    File.open('phonocast.yaml', 'w') do |f|
+      f.write(Phonocast::Configuration::DEFAULTS.to_yaml)
     end
   end
 
