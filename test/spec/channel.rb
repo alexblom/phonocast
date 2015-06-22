@@ -3,18 +3,18 @@ require 'test_helper'
 
 require 'xml/libxml'
 
-describe Cassette::Channel do
+describe Phonocast::Channel do
 
   let(:channel_opts) {
     {
-      file_path:   CassetteTest::FIXTURE,
+      file_path:   PhonocastTest::FIXTURE,
       description: "New description",
       image_path: 'awesome_logo.jpg'
     }
   }
 
   let(:channel) {
-    client = Cassette::Client.new channel_opts
+    client = Phonocast::Client.new channel_opts
 
     client.channel
   }
@@ -22,7 +22,7 @@ describe Cassette::Channel do
   let(:channel_without_image) {
     opts = channel_opts.clone
     opts.delete(:image_path)
-    client = Cassette::Client.new opts
+    client = Phonocast::Client.new opts
 
     client.channel
   }
@@ -36,26 +36,26 @@ describe Cassette::Channel do
   }
 
   let(:defaults) {
-    Cassette::Channel::DEFAULTS
+    Phonocast::Channel::DEFAULTS
   }
 
   #Channel will not create due to no opts
   let(:invalid_config_channel) {
-    Cassette::Channel.new
+    Phonocast::Channel.new
   }
 
   let(:invalid_description_channel) {
-    Cassette::Client.new({ description: "" }).channel
+    Phonocast::Client.new({ description: "" }).channel
   }
 
   let(:invalid_link_channel) {
-    Cassette::Client.new({
+    Phonocast::Client.new({
       link: ""
     }).channel
   }
 
   let(:invalid_title_channel) {
-    Cassette::Client.new({
+    Phonocast::Client.new({
       title: ""
     }).channel
   }

@@ -2,18 +2,18 @@ require 'minitest/spec'
 require 'test_helper'
 require 'yaml'
 
-describe Cassette::Client do
+describe Phonocast::Client do
   let(:client) {
     opts = { base_url: "http://alexblom.com" }
-    Cassette::Client.new(opts)
+    Phonocast::Client.new(opts)
   }
   let(:client) {
     opts = { base_url: "http://alexblom.com" }
-    Cassette::Client.new(opts)
+    Phonocast::Client.new(opts)
   }
 
-  let(:yaml_filename) { "cassette.yaml" }
-  let(:rss_filepath) { "cassette.rss" }
+  let(:yaml_filename) { "phonocast.yaml" }
+  let(:rss_filepath) { "phonocast.rss" }
   let(:new_rss_filepath) { "sexy_podcast.rss" }
 
   let(:yaml) {
@@ -25,7 +25,7 @@ describe Cassette::Client do
   end
 
   it 'creates a configuration object' do
-    client.configuration.class.must_equal Cassette::Configuration
+    client.configuration.class.must_equal Phonocast::Configuration
   end
 
   it 'passes opts to configuration' do
