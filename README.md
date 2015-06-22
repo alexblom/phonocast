@@ -1,6 +1,6 @@
-# Cassette
+# Phonocast
 
-Cassette is a gem to convert local audio files to a podcast feed, which
+Phonocast is a gem to convert local audio files to a podcast feed, which
 can then be deployed on your own server or even Dropbox.
 
 *Motivation:*
@@ -15,7 +15,7 @@ gem install #TODO
 ### Generating an RSS Feed:
 
 ``
-cassette create_feed
+phonocast create_feed
 ``
 
 ### Setup Yaml Config
@@ -26,7 +26,7 @@ options not available by the CLI.
 
 To generate the YAML file:
 ``
-cassette setup
+phonocast setup
 ``
 
 ## Feed Config Options.
@@ -45,12 +45,12 @@ All itunes\_ tags correspond to iTunes RSS spec.
 | Name            | CLI | YAML |  Desc            |
 | -------------   | --- | ---- | ---------------- |
 | base_url        | Y   | Y    | Url where audio files are hosted, e.g. myserver.com/podcasts or mypublicdropbox.com. Defaults to link. |
-| rss_path        | Y   | Y    | Location and name of generated rss file. Default: ./cassette.rss |
+| rss_path        | Y   | Y    | Location and name of generated rss file. Default: ./phonocast.rss |
 | file_path       | Y   | Y    | Where are local audio files? Default: ./ |
 | image_path      | N   | Y    | Podcast log. base_url/image_path. Channel level. |
 | title           | Y   | Y    | Title of Podcast |
 | link            | Y   | Y    | Channel level link (e.g. mypodcast.com) |
-| yaml_path       | Y   | Y    | Location of YAML file for config. Default: ./cassette.yaml |
+| yaml_path       | Y   | Y    | Location of YAML file for config. Default: ./phonocast.yaml |
 | copyright       | N   | Y    | Channel level |
 | language        | N   | Y    | Channel level |
 | description     | N   | Y    | Channel level |
