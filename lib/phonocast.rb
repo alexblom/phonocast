@@ -6,5 +6,5 @@ module Phonocast
   require 'phonocast/item'
   require 'phonocast/configuration'
 
-  VERSION = "0.1.0"
+  VERSION = "0.1.1"
 end
