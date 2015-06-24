@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.date        = '2015-06-06'
   spec.summary     = "Create a Podcast Feed from mp3 files"
   spec.description = "Create a Podcast feed from mp3 files"
-  spec.authors     = ["Alex Blom"]
+  spec.authors     = ["Alex Blom", "Zach Aysan"]
   spec.email       = 'alex@alexblom.com'
   spec.homepage    =
     'https://github.com/AlexBlom/phonocast'
